@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "466344299651",
+    "project_id": "hostelmanagement-f6ba5",
+    "storage_bucket": "hostelmanagement-f6ba5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466344299651:android:44bcb403691051d95bdfb6",
+        "android_client_info": {
+          "package_name": "com.example.hmc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466344299651-iesah80bn77pir292efkhd4entn9g3im.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdzg_AroxMP5WsnywTORLDt0taoeyOp58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466344299651-iesah80bn77pir292efkhd4entn9g3im.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466344299651:android:5b7cc43ed2e2c73f5bdfb6",
+        "android_client_info": {
+          "package_name": "com.example.hms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466344299651-iesah80bn77pir292efkhd4entn9g3im.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdzg_AroxMP5WsnywTORLDt0taoeyOp58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466344299651-iesah80bn77pir292efkhd4entn9g3im.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
