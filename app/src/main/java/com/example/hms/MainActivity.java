@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
     String color[] = {"#FF0000", "#FBB917", "#357EC7"};
     private List<StudentList> finalStudentList = new ArrayList<>();
     String phase[] = {"R", "Y", "B"};
-    String ColumnName[] = { "S ID","S Name", "H ID", "Room No.", "Phone No.", "Address"};
+    String ColumnName[] = { "S ID","S Name", "H ID", "Phone No.", "Address"};
     String border[] = {"r_border", "y_border", "b_border"};
     String RYB_voltage[][];
     private FirebaseAuth mAuth;
-    String getmyStudent_url = "http://192.168.137.129/fatchstudents.php";
+    String getmyStudent_url = "http://192.168.201.129/fatchstudents.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         get_myAnimal();
     }
 
-    public void Table(String PanelVoltage[][]) {
+    public void Table() {
 
         int lenth = finalStudentList.size();
         TableLayout stk = (TableLayout) findViewById(R.id.table);
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
             StudentList item = finalStudentList.get(i);
 
-            String value[] = {item. getStudent_id(),item.getName(), item.getHostel_id(), item.getRoom_number(),
+            String value[] = {item. getStudent_id(),item.getName(), item.getHostel_id(),
                     item.getContact_telephone_number(), item.getPermanent_address()};
 
              for (int d = 0; d < value.length; d++) {
@@ -137,8 +137,7 @@ public class MainActivity extends AppCompatActivity {
                                 item.setHostel_id(student.getString("hostel_id"));
                                 item.setStudent_id(student.getString("student_id"));
                                 item.setPermanent_address(student.getString("permanent_address"));
-                                item.setContact_telephone_number(student.getString("contact_telephone_number"));
-                                item.setRoom_number(student.getString("room_number"));
+                                item.setContact_telephone_number(student.getString("phone_no"));
 
                                 studentLists.add(item);
                             }
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void run() {
                                     //ui update of recycle view
 //                            adapter.setItem();
-                                    Table(RYB_voltage);
+                                    Table();
                                 }
                             });
 
