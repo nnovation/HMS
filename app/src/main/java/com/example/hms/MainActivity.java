@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     String color[] = {"#FF0000", "#FBB917", "#357EC7"};
     private List<StudentList> finalStudentList = new ArrayList<>();
     String phase[] = {"R", "Y", "B"};
-    String ColumnName[] = {"Name", "S ID", "H ID"};
+    String ColumnName[] = { "S ID","S Name", "H ID", "Room No.", "Phone No.", "Address"};
     String border[] = {"r_border", "y_border", "b_border"};
     String RYB_voltage[][];
     private FirebaseAuth mAuth;
@@ -75,12 +76,13 @@ public class MainActivity extends AppCompatActivity {
 
         TableRow First_Row = new TableRow(MainActivity.this);
 
-        for (int d = 0; d < 3; d++) {
+        for (int d = 0; d < ColumnName.length; d++) {
             TextView Collumn_Name = new TextView(MainActivity.this);
 
             Collumn_Name.setLayoutParams(row_with);
             Collumn_Name.setBackgroundColor(Color.WHITE);
             Collumn_Name.setText(ColumnName[d]);
+            Collumn_Name.setTypeface(null, Typeface.BOLD); // Set text to be bold
             Collumn_Name.setTextColor(Color.BLACK);
             Collumn_Name.setTextSize(18);
             Collumn_Name.setGravity(Gravity.CENTER);
@@ -94,42 +96,24 @@ public class MainActivity extends AppCompatActivity {
 
             StudentList item = finalStudentList.get(i);
 
-                TextView Data_R = new TextView(MainActivity.this);
+            String value[] = {item. getStudent_id(),item.getName(), item.getHostel_id(), item.getRoom_number(),
+                    item.getContact_telephone_number(), item.getPermanent_address()};
 
-                Data_R.setLayoutParams(row_with);
-                Data_R.setBackgroundColor(Color.WHITE);
-                Data_R.setText(item.getName());
-                Data_R.setTextColor(Color.BLACK);
-                Data_R.setTextSize(18);
-                Data_R.setGravity(Gravity.CENTER);
-                Data_R.setBackground(getDrawable(R.drawable.border));
-                Data_Row.addView(Data_R);
+             for (int d = 0; d < value.length; d++) {
+                 TextView Data_R = new TextView(MainActivity.this);
 
-            TextView Data_B = new TextView(MainActivity.this);
-
-            Data_B.setLayoutParams(row_with);
-            Data_B.setBackgroundColor(Color.WHITE);
-            Data_B.setText(item.getStudent_id());
-            Data_B.setTextColor(Color.BLACK);
-            Data_B.setTextSize(18);
-            Data_B.setGravity(Gravity.CENTER);
-            Data_B.setBackground(getDrawable(R.drawable.border));
-            Data_Row.addView(Data_B);
-
-            TextView Data_Y = new TextView(MainActivity.this);
-
-            Data_Y.setLayoutParams(row_with);
-            Data_Y.setBackgroundColor(Color.WHITE);
-            Data_Y.setText(item.getHostel_id());
-            Data_Y.setTextColor(Color.BLACK);
-            Data_Y.setTextSize(18);
-            Data_Y.setGravity(Gravity.CENTER);
-            Data_Y.setBackground(getDrawable(R.drawable.border));
-            Data_Row.addView(Data_Y);
-
-            stk.addView(Data_Row);
+                 Data_R.setLayoutParams(row_with);
+                 Data_R.setBackgroundColor(Color.WHITE);
+                 Data_R.setText(value[d]);
+                 Data_R.setTextColor(Color.BLACK);
+                 Data_R.setTextSize(18);
+                 Data_R.setGravity(Gravity.CENTER);
+                 Data_R.setBackground(getDrawable(R.drawable.border));
+                 Data_Row.addView(Data_R);
+             }
+                stk.addView(Data_Row);
 //            stk.setBackground(this.getDrawable(R.drawable.border));
-            stk.setPadding(15, 0, 15, 20);
+                stk.setPadding(15, 0, 15, 20);
         }
     }
     private void  get_myAnimal() {
@@ -152,6 +136,9 @@ public class MainActivity extends AppCompatActivity {
                                 item.setName(student.getString("name"));
                                 item.setHostel_id(student.getString("hostel_id"));
                                 item.setStudent_id(student.getString("student_id"));
+                                item.setPermanent_address(student.getString("permanent_address"));
+                                item.setContact_telephone_number(student.getString("contact_telephone_number"));
+                                item.setRoom_number(student.getString("room_number"));
 
                                 studentLists.add(item);
                             }

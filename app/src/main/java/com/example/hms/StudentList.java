@@ -5,6 +5,34 @@ public class StudentList {
     String student_id;
     String Hostel_id;
     String Room_number;
+    String permanent_address;
+    String contact_telephone_number;
+    String photograph;
+    String room_number;
+
+    public void setPermanent_address(String permanent_address) {
+        this.permanent_address = permanent_address;
+    }
+
+    public void setContact_telephone_number(String contact_telephone_number) {
+        this.contact_telephone_number = contact_telephone_number;
+    }
+
+    public void setPhotograph(String photograph) {
+        this.photograph = photograph;
+    }
+
+    public String getPermanent_address() {
+        return permanent_address;
+    }
+
+    public String getContact_telephone_number() {
+        return contact_telephone_number;
+    }
+
+    public String getPhotograph() {
+        return photograph;
+    }
 
     public void setName(String name) {
         Name = name;
